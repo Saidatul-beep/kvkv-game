@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game KV+KV Sosial</title>
+</head>
+<body style="text-align:center; font-family:sans-serif;">
+
+<h1>🎮 Jom Berkawan!</h1>
+<p>Sebut: <b>HAI KAWAN</b></p>
+
+<button onclick="start()">🎤 Tekan & Cakap</button>
+
+<p id="result"></p>
+
+<script>
+function start() {
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "ms-MY";
+
+  recognition.onresult = function(event) {
+    let speech = event.results[0][0].transcript;
+    document.getElementById("result").innerHTML = "Anda sebut: " + speech;
+
+    if (speech.toLowerCase().includes("hai kawan")) {
+      alert("🎉 Betul! Bagus!");
+    } else {
+      alert("❌ Cuba lagi!");
+    }
+  };
+
+  recognition.start();
+}
+</script>
+
+</body>
+</html>
