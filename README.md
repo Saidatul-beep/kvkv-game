@@ -4,44 +4,62 @@
   <title>Game KV+KV Sosial</title>
 </head>
 
-<body style="text-align:center; font-family:sans-serif;">
+<body style="text-align:center; font-family:sans-serif; background-color:#f0f8ff;">
 
-<h1>🎮 Jom Belajar Sosial</h1>
+<h1>🛒 Jom Ke Pasaraya!</h1>
 
-<p id="instruction">Klik butang untuk mula</p>
+<img src="pasaraya-cartoon.png" width="300" style="border-radius:20px;">
 
-<button onclick="startGame()">🎤 Mula</button>
+<p style="font-size:18px;">Belajar bercakap sambil bermain!</p>
+
+<button onclick="startGame()" style="font-size:20px; padding:10px 20px; border-radius:10px;">
+  ▶️ Mula Game
+</button>
+
+<br><br>
+
+<div id="game" style="display:none;">
+
+  <h2>Game Pasaraya</h2>
+
+  <img src="baju.png" width="200">
+
+  <p id="instruction"></p>
+
+  <button onclick="startVoice()">🎤 Jawab</button>
+
+  <h2 id="reward" style="display:none;">⭐ ⭐ ⭐</h2>
+
+</div>
 
 <script>
-let level = 0;
-
-const tasks = [
-  "hai kawan",
-  "tolong saya",
-  "terima kasih"
-];
+function speak(text) {
+  const msg = new SpeechSynthesisUtterance(text);
+  msg.lang = "ms-MY";
+  speechSynthesis.speak(msg);
+}
 
 function startGame() {
-  if (level >= tasks.length) {
-    alert("🎉 Tahniah! Semua selesai!");
-    return;
-  }
+  document.getElementById("game").style.display = "block";
 
-  let current = tasks[level];
+  speak("Apa yang awak beli itu");
+
   document.getElementById("instruction").innerHTML = 
-    "Sebut: " + current.toUpperCase();
+    "Sebut: BAJU";
+}
 
+function startVoice() {
   const recognition = new webkitSpeechRecognition();
   recognition.lang = "ms-MY";
 
   recognition.onresult = function(event) {
     let speech = event.results[0][0].transcript.toLowerCase();
 
-    if (speech.includes(current)) {
-      alert("✅ Betul!");
-      level++;
+    if (speech.includes("baju")) {
+      document.getElementById("reward").style.display = "block";
+      speak("Tahniah! Awak betul! Tepuk tangan untuk diri sendiri");
     } else {
-      alert("❌ Cuba lagi!");
+      speak("Cuba lagi");
     }
   };
 
