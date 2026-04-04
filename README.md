@@ -35,7 +35,21 @@
 <script>
 function speak(text) {
   const msg = new SpeechSynthesisUtterance(text);
+
+  // cuba cari suara Melayu / Indonesia
+  let voices = speechSynthesis.getVoices();
+  let selectedVoice = voices.find(voice => 
+    voice.lang.includes("ms") || voice.lang.includes("id")
+  );
+
+  if (selectedVoice) {
+    msg.voice = selectedVoice;
+  }
+
   msg.lang = "ms-MY";
+  msg.pitch = 1;     // nada suara (boleh ubah 0.8 - 1.5)
+  msg.rate = 0.9;    // kelajuan (slow sikit, sesuai budak)
+
   speechSynthesis.speak(msg);
 }
 
@@ -57,7 +71,7 @@ function startVoice() {
 
     if (speech.includes("baju")) {
       document.getElementById("reward").style.display = "block";
-      speak("Tahniah! Awak betul! Tepuk tangan untuk diri sendiri");
+      speak("Tahniah! Pandai! Tepuk tangan untuk diri sendiri");
     } else {
       speak("Cuba lagi");
     }
