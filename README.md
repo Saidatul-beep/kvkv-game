@@ -54,6 +54,9 @@ function speak(text) {
 }
 
 function startGame() {
+  // start music
+  document.getElementById("bgMusic").play();
+
   document.getElementById("game").style.display = "block";
 
   speak("Apa yang awak beli itu");
@@ -81,5 +84,5 @@ function startVoice() {
 }
 </script>
 
-</body>
+</body><audio id="bgMusic" src="bg-music.mp3" loop autoplay></audio>
 </html>
