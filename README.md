@@ -99,10 +99,29 @@
       return;
     }
 const item = items[currentItem];
-    document.getElementById("itemImage").src = item.image;
-    document.getElementById("reward").style.display = "none";
-    document.getElementById("instruction").innerHTML = "Sebut: " + item.name.toUpperCase();
-    speak("Apa yang awak beli itu?");
+document.getElementById("itemImage").src = item.image;
+document.getElementById("reward").style.display = "none";
+document.getElementById("instruction").innerHTML = "Sebut: " + item.name.toUpperCase();
+
+// Paksa guna voice Melayu
+let msg = new SpeechSynthesisUtterance("Apa yang awak beli itu?");
+let voices = speechSynthesis.getVoices();
+
+// cari voice Melayu / Indonesia
+let malayVoice = voices.find(v => 
+  v.lang.toLowerCase().includes("ms") || 
+  v.lang.toLowerCase().includes("id")
+);
+
+if (malayVoice) {
+  msg.voice = malayVoice;
+}
+
+msg.lang = "ms-MY";
+msg.pitch = 1;
+msg.rate = 0.9;
+
+speechSynthesis.speak(msg);
   }
 
   // ===== MIC & CHECK ANSWER =====
