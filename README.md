@@ -38,7 +38,7 @@
 <body>
 
 <h1>🛒 Jom Ke Pasaraya!</h1>
-<img src="pasaraya-cartoon.png" width="300">
+<img src="pasaraya.png" width="300">
 <p style="font-size:18px;">Belajar bercakap sambil bermain!</p>
 
 <button onclick="startGame()">▶️ Mula Game</button>
