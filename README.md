@@ -60,7 +60,6 @@
 
   // ===== ITEM LIST =====
   const items = [
-    {name:"susu", image:"susu.png"},
     {name:"bola", image:"bola.png"},
     {name:"meja", image:"meja.png"},
     {name:"buku", image:"buku.png"},
