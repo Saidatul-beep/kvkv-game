@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<Pasaraya Piramid kvkv>
 <html>
 <head>
   <title>Game KV+KV Sosial</title>
@@ -115,7 +115,7 @@
       const itemName = items[currentItem].name;
       if (speech.includes(itemName)) {
         document.getElementById("reward").style.display = "block";
-        speak("Tahniah! Awak betul! Tepuk tangan untuk diri sendiri");
+        speak("Tahniah! Awak betul! Tepuk tangan untuk diri sendiri.Seterusnya");
         currentItem++;
         setTimeout(showItem, 2000); // pergi item seterusnya selepas 2 saat
       } else {
