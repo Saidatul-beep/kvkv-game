@@ -67,7 +67,7 @@
     {name:"roti", image:"roti.png"},
     {name:"labu", image:"labu.png"},
     {name:"jeli", image:"jeli.png"},
-    {name:"kopi", image:"kopi.png"}
+    {name:"kopi", image:"gula.png"}
   ];
 
   let currentItem = 0;
@@ -115,8 +115,9 @@
       const itemName = items[currentItem].name;
       if (speech.includes(itemName)) {
         document.getElementById("reward").style.display = "block";
-        speak("Tahniah! Awak betul! Tepuk tangan untuk diri sendiri.Seterusnya");
+        speak("Tahniah! Awak betul! Tepuk tangan untuk diri sendiri");
         currentItem++;
+        speak("Seterusnya");
         setTimeout(showItem, 2000); // pergi item seterusnya selepas 2 saat
       } else {
         speak("Cuba lagi");
