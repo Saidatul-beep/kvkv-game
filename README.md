@@ -99,16 +99,10 @@
       return;
     }
 const item = items[currentItem];
-document.getElementById("itemImage").src = item.image;
-document.getElementById("reward").style.display = "none";
-document.getElementById("instruction").innerHTML = "Sebut: " + item.name.toUpperCase();
-
-// Paksa sebut dalam Bahasa Melayu
-const msg = new SpeechSynthesisUtterance("Apa yang awak beli itu?");
-msg.lang = "ms-MY";
-msg.pitch = 1;
-msg.rate = 0.9;
-speechSynthesis.speak(msg);
+    document.getElementById("itemImage").src = item.image;
+    document.getElementById("reward").style.display = "none";
+    document.getElementById("instruction").innerHTML = "Sebut: " + item.name.toUpperCase();
+    speak("Apa yang awak beli itu?");
   }
 
   // ===== MIC & CHECK ANSWER =====
